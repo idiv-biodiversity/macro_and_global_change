@@ -19,16 +19,16 @@ navbar:
         href: 04_explore_iucn.html
   - text: Afternoon
     menu:
-    - text: 1 - Obtaining geographic occurrence records from GBIF
-      href: 05_download_GBIF_data.html
-    - text: 2 -Cleaning geographic data
-      href: 06_cleaning_geographic_data.html
-    - text: 3 - Species ranges & richness maps
-      href: 07_species_richness.html
-    - text: 4 - Automated conservation assessment and IUCN assessments
-      href: 08_automated_conservation_assessment.html
-    - text: 5 - Taxon-specific bioregionalization
-      href: 09_taxon_specific_bioregions.html
+      - text: 1 - Obtaining geographic occurrence records from GBIF
+        href: 05_download_GBIF_data.html
+      - text: 2 -Cleaning geographic data
+        href: 06_cleaning_geographic_data.html
+      - text: 3 - Species ranges & richness maps
+        href: 07_species_richness.html
+      - text: 4 - Automated conservation assessment and IUCN assessments
+        href: 08_automated_conservation_assessment.html
+      - text: 5 - Taxon-specific bioregionalization
+        href: 09_taxon_specific_bioregions.html
   right:
   - text: GitHub
     href: https://github.com/idiv-biodiversity/macro_and_global_change
