@@ -8,7 +8,7 @@ Teachers: Alexander Zizka, German Center for Integrative Biodiversity research
 
 - Please install R (>=3.5) and RStudio on your computer
 
-- Run the installation script available [here]() (by simply copying it into your R console) 
+- Run the installation script available [here](https://idiv-biodiversity.github.io/macro_and_global_change/01_setup.html) (by simply copying it into your R console) 
 
 - Have a look at the course literature listed below if you are interested
 
