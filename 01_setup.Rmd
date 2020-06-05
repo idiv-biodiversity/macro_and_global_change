@@ -1,0 +1,32 @@
+---
+title: "Setup"
+output: html_document
+---
+
+#R dependencies
+During the course, we will used R and Rstudio to run analyses. Please install the following packages already now, to be as efficient as possible during the exercises. Please open Rstudio and run the following command to install the necessary dependencies. You can just copy the code from the following chunk.
+
+```{r, eval = FALSE}
+install.packages(c(
+  "devtools",
+  "scales",
+  "raster",
+  "tidyverse",
+  "countrycode",
+  "rgdal",
+  "rgbif",
+  "ConR",
+  "rredlist",
+  "rgeos",
+  "stringr",
+  "RColorBrewer",
+  "colorspace",
+  "viridis",
+  "CoordinateCleaner")
+)
+
+library(devtools)
+install_github("azizka/speciesgeocodeR")
+```
+
+As a last step, please create a new folder on your hard drive for today (your working directory), create a new R project within this folder (in RStudio, File -> New project). Close R studio again and create a subfolder names "inst" in your working directory.
