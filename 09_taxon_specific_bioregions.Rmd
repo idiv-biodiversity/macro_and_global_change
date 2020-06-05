@@ -1,8 +1,6 @@
 ---
 title: "Bioregionalization"
-output: 
-  html_document:
-    theme: readable
+output:  html_document
 ---
 
 ```{r global_options, include=FALSE}

@@ -1,8 +1,6 @@
 ---
 title: "Species richness maps and species ranges"
-output: 
-  html_document:
-    theme: readable
+output:  html_document
 ---
 
 ```{r global_options, include=FALSE}
