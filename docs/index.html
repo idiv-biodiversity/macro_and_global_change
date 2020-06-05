@@ -267,7 +267,7 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Macroecology, Macroevolution and Global Change -  Distribution data and IUCN assessments</a>
+      <a class="navbar-brand" href="index.html">Distribution data and IUCN assessments</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -278,6 +278,9 @@ $(document).ready(function () {
     Home
   </a>
 </li>
+<li>
+  <a href="01_setup.html">Setup</a>
+</li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Morning
@@ -286,16 +289,13 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="01_setup.html">Setup</a>
+      <a href="02_explore_gbif.html">1- Explore GBIF</a>
     </li>
     <li>
-      <a href="02_explore_gbif.html">Explore GBIF</a>
+      <a href="03_explore_paleobioDB.html">2 - Explore the Paleobiology database</a>
     </li>
     <li>
-      <a href="03_explore_paleobioDB.html">Explore the Paleobiology database</a>
-    </li>
-    <li>
-      <a href="04_explore_iucn.html">explore the IUCN database</a>
+      <a href="04_explore_iucn.html">3 - explore the IUCN database</a>
     </li>
   </ul>
 </li>
@@ -307,22 +307,19 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="05_download_GBIF_data.html">Obtaining geographic occurrence records from GBIF</a>
+      <a href="05_download_GBIF_data.html">1 - Obtaining geographic occurrence records from GBIF</a>
     </li>
     <li>
-      <a href="06_cleaning_geographic_data.html">Cleaning geographic data</a>
+      <a href="06_cleaning_geographic_data.html">2 -Cleaning geographic data</a>
     </li>
     <li>
-      <a href="07_political_bias.html">Exploring sampling bias by socio-economic factors</a>
+      <a href="07_species_richness.html">3 - Species ranges &amp; richness maps</a>
     </li>
     <li>
-      <a href="08_species_richness.html">Species ranges &amp; richness maps</a>
+      <a href="08_automated_conservation_assessment.html">4 - Automated conservation assessment and IUCN assessments</a>
     </li>
     <li>
-      <a href="09_taxon_specific_bioregions.html">Taxon-specific bioregionalization</a>
-    </li>
-    <li>
-      <a href="10_automated_conservation_assessment.html">Automated conservation assessment and IUCN assessments</a>
+      <a href="09_taxon_specific_bioregions.html">5 - Taxon-specific bioregionalization</a>
     </li>
   </ul>
 </li>
@@ -344,15 +341,15 @@ $(document).ready(function () {
 </div>
 
 
-<div id="macroecology-macroevolution-and-global-change-distribution-data-and-iucn-assessments" class="section level1">
-<h1>Macroecology, Macroevolution and Global Change: Distribution data and IUCN assessments</h1>
+<div id="distribution-data-and-iucn-assessments" class="section level1">
+<h1>Distribution data and IUCN assessments</h1>
 <p>Date &amp; time: Tuesday, June 9^th, 10:15 – 17:15</p>
 <p>Teachers: Alexander Zizka, German Center for Integrative Biodiversity research</p>
-<div id="before-the-course" class="section level2">
-<h2>Before the course</h2>
+<div id="before-the-practical" class="section level2">
+<h2>Before the practical</h2>
 <ul>
 <li><p>Please install R (&gt;=3.5) and RStudio on your computer</p></li>
-<li><p>Run the installation script available <a href="">here</a> or <a href="">here</a> (by simply copying it into your R console)</p></li>
+<li><p>Run the installation script available <a href="">here</a> (by simply copying it into your R console)</p></li>
 <li><p>Have a look at the course literature listed below if you are interested</p></li>
 </ul>
 </div>
@@ -366,22 +363,22 @@ $(document).ready(function () {
 <ol style="list-style-type: decimal">
 <li><p>Obtain large scale species occurrence records from www.gbif.org databases in R</p></li>
 <li><p>Perform basic filters for geographic data quality in R</p></li>
-<li><p>Run simple biogeographic and automated conservatino assessment analyses</p></li>
+<li><p>Run simple biogeographic and automated conservation assessment analyses</p></li>
 </ol>
 </div>
 </div>
 <div id="schedule" class="section level1">
 <h1>Schedule</h1>
-<p>10:15 - 11:30 Biodiveristy databases - Intro and exploration</p>
+<p>10:15 - 11:30 Biodiversity databases - Intro and exploration</p>
 <p>11:30 - 12:15 Code and Software demonstration</p>
-<p>13:15 - 17:15 Self study using onlie material, tutoring via Slack</p>
+<p>13:15 - 17:15 Self study using on-line material, tutoring via Slack</p>
 <div id="background" class="section level2">
 <h2>Background</h2>
 <p>The public availability of large-scale species distribution data has increased drastically over the last ten years. In particular, due to the aggregation of records from museums and herbaria, and citizen science in public databases such as the Global Biodiversity Information Facility (GBIF). This is leading to a ‘big data’ revolution in macroevolution and macroecology, which holds an enormous but still poorly explored potential for understanding large scale patterns and drivers of biodiversity in space and time.</p>
 </div>
 <div id="assignment" class="section level2">
 <h2>Assignment</h2>
-<p>At the end of the first three exercise, you will find some questions for self assessment and to make sure to progress during the practical. Please create a folder with your name at “Block course/Tutorials_week1/Day2_Distribution_data_and_IUCN_assessments/examination” and pur a text file with your answers in it. Please also copy the output files from the afternoon excersies (those that you write to the disk) to this folder.</p>
+<p>At the end of the first three exercise, you will find some questions for self assessment and to make sure to progress during the practical. Please create a folder with your name at “Block course/Tutorials_week1/Day2_Distribution_data_and_IUCN_assessments/examination” and put a text file with your answers in it. Please also copy the output files from the afternoon exercises (those that you write to the disk) to this folder.</p>
 </div>
 <div id="course-literature" class="section level2">
 <h2>Course literature</h2>

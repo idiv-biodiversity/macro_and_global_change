@@ -4,11 +4,11 @@ Date & time: Tuesday, June 9^th, 10:15 -- 17:15
 
 Teachers: Alexander Zizka, German Center for Integrative Biodiversity research
 
-## Before the course
+## Before the practical
 
 - Please install R (>=3.5) and RStudio on your computer
 
-- Run the installation script available [here]() or [here]() (by simply copying it into your R console) 
+- Run the installation script available [here]() (by simply copying it into your R console) 
 
 - Have a look at the course literature listed below if you are interested
 

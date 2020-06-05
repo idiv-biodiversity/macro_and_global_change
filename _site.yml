@@ -1,36 +1,34 @@
 name: big_data_biogeography
 output_dir: docs
 navbar:
-  title: Macroecology, Macroevolution and Global Change -  Distribution data and IUCN assessments
+  title: Distribution data and IUCN assessments
   type: inverse
   left:
   - text: Home
     icon: fa-home 
     href: index.html
+  - text: Setup
+    href: 01_setup.html
   - text: Morning
     menu:
-      - text: Setup
-        href: 01_setup.html
-      - text: Explore GBIF
+      - text: 1- Explore GBIF
         href: 02_explore_gbif.html
-      - text: Explore the Paleobiology database
+      - text: 2 - Explore the Paleobiology database
         href: 03_explore_paleobioDB.html
-      - text: explore the IUCN database
+      - text: 3 - explore the IUCN database
         href: 04_explore_iucn.html
   - text: Afternoon
     menu:
-    - text: Obtaining geographic occurrence records from GBIF
+    - text: 1 - Obtaining geographic occurrence records from GBIF
       href: 05_download_GBIF_data.html
-    - text: Cleaning geographic data
+    - text: 2 -Cleaning geographic data
       href: 06_cleaning_geographic_data.html
-    - text: Exploring sampling bias by socio-economic factors
-      href: 07_political_bias.html
-    - text: Species ranges & richness maps
-      href: 08_species_richness.html
-    - text: Taxon-specific bioregionalization
+    - text: 3 - Species ranges & richness maps
+      href: 07_species_richness.html
+    - text: 4 - Automated conservation assessment and IUCN assessments
+      href: 08_automated_conservation_assessment.html
+    - text: 5 - Taxon-specific bioregionalization
       href: 09_taxon_specific_bioregions.html
-    - text: Automated conservation assessment and IUCN assessments
-      href: 10_automated_conservation_assessment.html
   right:
   - text: GitHub
     href: https://github.com/idiv-biodiversity/macro_and_global_change
