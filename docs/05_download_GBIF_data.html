@@ -294,7 +294,7 @@ $(document).ready(function () {
       <a href="02_explore_gbif.html">1- Explore GBIF</a>
     </li>
     <li>
-      <a href="03_explore_paleobioDB.html">2 - Explore the Paleobiology database</a>
+      <a href="03_explore_paleobiodb.html">2 - Explore the Paleobiology database</a>
     </li>
     <li>
       <a href="04_explore_iucn.html">3 - explore the IUCN database</a>
@@ -366,6 +366,8 @@ $(document).ready(function () {
 <div id="library-setup" class="section level2">
 <h2>Library setup</h2>
 <p>In this exercise we will use the rgbif library for communication with GBIF and the tidyverse library for data management.</p>
+<pre class="r"><code>library(rgbif)
+library(tidyverse)</code></pre>
 </div>
 <div id="tutorial" class="section level1">
 <h1>Tutorial</h1>
@@ -389,8 +391,7 @@ plot(dat$decimalLatitude ~ dat$decimalLongitude)  # Look at the georeferenced re
 <pre class="r"><code># Use the name_suggest function to get the gbif taxon key
 tax_key &lt;- name_suggest(q = &quot;Hyperoliidae&quot;, rank = &quot;Family&quot;)
 
-# Sometimes groups have multiple taxon keys, in this case three, so we will check how many records are available
-# for them
+# Sometimes groups have multiple taxon keys, in this case three, so we will check how many records are available for them
 lapply(tax_key$key, &quot;occ_count&quot;)
 
 # Here the firsrt one is relevant, check for your group!

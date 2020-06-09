@@ -294,7 +294,7 @@ $(document).ready(function () {
       <a href="02_explore_gbif.html">1- Explore GBIF</a>
     </li>
     <li>
-      <a href="03_explore_paleobioDB.html">2 - Explore the Paleobiology database</a>
+      <a href="03_explore_paleobiodb.html">2 - Explore the Paleobiology database</a>
     </li>
     <li>
       <a href="04_explore_iucn.html">3 - explore the IUCN database</a>
@@ -387,9 +387,8 @@ library(rgdal)</code></pre>
 # Visualize
 world.inp &lt;- map_data(&quot;world&quot;)
 
-ggplot() + geom_map(data = world.inp, map = world.inp, aes(x = long, y = lat, map_id = region), fill = &quot;grey80&quot;) + 
-    xlim(min(dat$decimalLongitude, na.rm = T), max(dat$decimalLongitude, na.rm = T)) + ylim(min(dat$decimalLatitude, 
-    na.rm = T), max(dat$decimalLatitude, na.rm = T)) + geom_point(data = dat, aes(x = decimalLongitude, y = decimalLatitude), 
+ggplot() + geom_map(data = world.inp, map = world.inp, aes(x = long, y = lat, map_id = region), fill = &quot;grey80&quot;) + xlim(min(dat$decimalLongitude, na.rm = T), max(dat$decimalLongitude, 
+    na.rm = T)) + ylim(min(dat$decimalLatitude, na.rm = T), max(dat$decimalLatitude, na.rm = T)) + geom_point(data = dat, aes(x = decimalLongitude, y = decimalLatitude), 
     colour = &quot;darkblue&quot;, size = 1) + coord_fixed() + theme_bw() + theme(axis.title = element_blank())</code></pre>
 </div>
 <div id="visualize-the-number-of-occurrence-records-and-the-number-of-species-in-a-regular-sized-grid-richnessgrid" class="section level2">
@@ -404,9 +403,8 @@ plot(gocc)
 plo_gocc &lt;- data.frame(rasterToPoints(gocc))
 
 # Visualize
-ggplot() + geom_map(data = world.inp, map = world.inp, aes(x = long, y = lat, map_id = region), fill = &quot;grey80&quot;) + 
-    xlim(min(dat$decimalLongitude, na.rm = T), max(dat$decimalLongitude, na.rm = T)) + ylim(min(dat$decimalLatitude, 
-    na.rm = T), max(dat$decimalLatitude, na.rm = T)) + geom_raster(data = plo_gocc, aes(x = x, y = y, fill = layer)) + 
+ggplot() + geom_map(data = world.inp, map = world.inp, aes(x = long, y = lat, map_id = region), fill = &quot;grey80&quot;) + xlim(min(dat$decimalLongitude, na.rm = T), max(dat$decimalLongitude, 
+    na.rm = T)) + ylim(min(dat$decimalLatitude, na.rm = T), max(dat$decimalLatitude, na.rm = T)) + geom_raster(data = plo_gocc, aes(x = x, y = y, fill = layer)) + 
     # scale_fill_viridis(name = &#39;Species&#39;, direction = -1)+
 coord_fixed() + theme_bw() + ggtitle(&quot;Number of occurrences&quot;) + theme(axis.title = element_blank())
 

@@ -294,7 +294,7 @@ $(document).ready(function () {
       <a href="02_explore_gbif.html">1- Explore GBIF</a>
     </li>
     <li>
-      <a href="03_explore_paleobioDB.html">2 - Explore the Paleobiology database</a>
+      <a href="03_explore_paleobiodb.html">2 - Explore the Paleobiology database</a>
     </li>
     <li>
       <a href="04_explore_iucn.html">3 - explore the IUCN database</a>
@@ -389,8 +389,7 @@ dat &lt;- st_as_sf(inp)
 # plot the rbioregions
 ggplot() + geom_sf(data = dat, aes(fill = as.factor(bioregion)))
 
-st_write(obj = dat, dsn = &quot;example_data&quot;, layer = &quot;bombacoideae_infomap_shapefile&quot;, driver = &quot;ESRI Shapefile&quot;, delete_layer = TRUE, 
-    delete_dsn = TRUE)</code></pre>
+st_write(obj = dat, dsn = &quot;example_data&quot;, layer = &quot;bombacoideae_infomap_shapefile&quot;, driver = &quot;ESRI Shapefile&quot;, delete_layer = TRUE, delete_dsn = TRUE)</code></pre>
 </div>
 </div>
 

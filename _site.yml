@@ -14,7 +14,7 @@ navbar:
       - text: 1- Explore GBIF
         href: 02_explore_gbif.html
       - text: 2 - Explore the Paleobiology database
-        href: 03_explore_paleobioDB.html
+        href: 03_explore_paleobiodb.html
       - text: 3 - explore the IUCN database
         href: 04_explore_iucn.html
   - text: Afternoon

@@ -29,11 +29,9 @@ We will use the rgbif package to obtain occurrence records from GBIF. You can fi
 ## Library setup
 In this exercise we will use the rgbif library for communication with GBIF and the tidyverse library for data management.
 
-```{r setup, include=FALSE}
+```{r setup, include=TRUE}
 library(rgbif)
 library(tidyverse)
-library(rgdal)
-library(rgeos)
 ```
 
 # Tutorial

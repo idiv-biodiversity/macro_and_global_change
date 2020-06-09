@@ -294,7 +294,7 @@ $(document).ready(function () {
       <a href="02_explore_gbif.html">1- Explore GBIF</a>
     </li>
     <li>
-      <a href="03_explore_paleobioDB.html">2 - Explore the Paleobiology database</a>
+      <a href="03_explore_paleobiodb.html">2 - Explore the Paleobiology database</a>
     </li>
     <li>
       <a href="04_explore_iucn.html">3 - explore the IUCN database</a>
@@ -370,8 +370,7 @@ library(dplyr)</code></pre>
 <h1>Tutorial</h1>
 <div id="approximate-species-ranges" class="section level2">
 <h2>1. Approximate species ranges</h2>
-<pre class="r"><code>dat &lt;- read_csv(&quot;inst/occurrence_records_clean.csv&quot;) %&gt;% dplyr::select(species, decimallongitude = decimalLongitude, 
-    decimallatitude = decimalLatitude)
+<pre class="r"><code>dat &lt;- read_csv(&quot;inst/occurrence_records_clean.csv&quot;) %&gt;% dplyr::select(species, decimallongitude = decimalLongitude, decimallatitude = decimalLatitude)
 
 # Based on EOO
 rs &lt;- CalcRangeSize(dat)</code></pre>

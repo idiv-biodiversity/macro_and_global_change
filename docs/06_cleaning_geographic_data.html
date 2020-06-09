@@ -294,7 +294,7 @@ $(document).ready(function () {
       <a href="02_explore_gbif.html">1- Explore GBIF</a>
     </li>
     <li>
-      <a href="03_explore_paleobioDB.html">2 - Explore the Paleobiology database</a>
+      <a href="03_explore_paleobiodb.html">2 - Explore the Paleobiology database</a>
     </li>
     <li>
       <a href="04_explore_iucn.html">3 - explore the IUCN database</a>
@@ -404,9 +404,8 @@ dat &lt;- dat %&gt;%
 <p>Visualizing the data on a map can be extremely helpful to understand potential problems and to identify problematic records.</p>
 <pre class="r"><code>world.inp &lt;- map_data(&quot;world&quot;)
 
-ggplot() + geom_map(data = world.inp, map = world.inp, aes(x = long, y = lat, map_id = region), fill = &quot;grey80&quot;) + 
-    xlim(min(dat$decimalLongitude, na.rm = T), max(dat$decimalLongitude, na.rm = T)) + ylim(min(dat$decimalLatitude, 
-    na.rm = T), max(dat$decimalLatitude, na.rm = T)) + geom_point(data = dat, aes(x = decimalLongitude, y = decimalLatitude, 
+ggplot() + geom_map(data = world.inp, map = world.inp, aes(x = long, y = lat, map_id = region), fill = &quot;grey80&quot;) + xlim(min(dat$decimalLongitude, na.rm = T), max(dat$decimalLongitude, 
+    na.rm = T)) + ylim(min(dat$decimalLatitude, na.rm = T), max(dat$decimalLatitude, na.rm = T)) + geom_point(data = dat, aes(x = decimalLongitude, y = decimalLatitude, 
     color = dataset), size = 1) + coord_fixed() + theme_bw() + theme(axis.title = element_blank())</code></pre>
 </div>
 <div id="clean-the-coordinates-based-on-available-meta-data" class="section level2">
@@ -423,8 +422,7 @@ dat_cl &lt;- dat_cl %&gt;% filter(coordinateUncertaintyInMeters/1000 &lt;= 100 |
 # remove unsuitable data sources, especially fossils
 table(dat$basisOfRecord)
 
-dat_cl &lt;- filter(dat_cl, basisOfRecord == &quot;HUMAN_OBSERVATION&quot; | basisOfRecord == &quot;OBSERVATION&quot; | basisOfRecord == 
-    &quot;PRESERVED_SPECIMEN&quot; | is.na(basisOfRecord))</code></pre>
+dat_cl &lt;- filter(dat_cl, basisOfRecord == &quot;HUMAN_OBSERVATION&quot; | basisOfRecord == &quot;OBSERVATION&quot; | basisOfRecord == &quot;PRESERVED_SPECIMEN&quot; | is.na(basisOfRecord))</code></pre>
 <p>In the next step we will remove records with suspicious individual counts. GBIF includes few records of absence (individual count = 0) and suspiciously high occurrence counts, which might indicate inappropriate data or data entry problems.</p>
 <pre class="r"><code># Individual count
 table(dat_cl$individualCount)
@@ -448,9 +446,8 @@ dat_cl &lt;- dat_cl %&gt;% filter(taxonRank == &quot;SPECIES&quot; | is.na(taxon
 <p>To identify additional problems we will run the automatic flagging algorithm of the CoordinateCleaner package. The <code>clean_coordinates</code> function is a wrapper around a large set of automated cleaning steps to flag errors that are common to biological collections, including: sea coordinates, zero coordinates, coordinate - country mismatches, coordinates assigned to country and province centroids, coordinates within city areas, outlier coordinates and coordinates assigned to biodiversity institutions. You can switch on each test individually using logical flags, modify the sensitivity of most individual tests using the “.rad” arguments, and provide custom gazetteers using the “.ref” arguments. See <code>?clean_coordinates</code> for help. To use the country - coordinate mismatch test we need to convert the country from ISO2 to ISO3 format. Since we work in a coastal area, we use a buffered reference, to avoid flagging records close to the sea.</p>
 <pre class="r"><code># flag problems
 dat_cl &lt;- data.frame(dat_cl)
-flags &lt;- clean_coordinates(x = dat_cl, lon = &quot;decimalLongitude&quot;, lat = &quot;decimalLatitude&quot;, countries = &quot;countryCode&quot;, 
-    species = &quot;species&quot;, tests = c(&quot;capitals&quot;, &quot;centroids&quot;, &quot;equal&quot;, &quot;gbif&quot;, &quot;zeros&quot;, &quot;countries&quot;, &quot;seas&quot;), country_ref = rnaturalearth::ne_countries(&quot;small&quot;), 
-    country_refcol = &quot;iso_a3&quot;, seas_ref = buffland)  # most test are on by default</code></pre>
+flags &lt;- clean_coordinates(x = dat_cl, lon = &quot;decimalLongitude&quot;, lat = &quot;decimalLatitude&quot;, countries = &quot;countryCode&quot;, species = &quot;species&quot;, tests = c(&quot;capitals&quot;, 
+    &quot;centroids&quot;, &quot;equal&quot;, &quot;gbif&quot;, &quot;zeros&quot;, &quot;countries&quot;, &quot;seas&quot;), country_ref = rnaturalearth::ne_countries(&quot;small&quot;), country_refcol = &quot;iso_a3&quot;, seas_ref = buffland)  # most test are on by default</code></pre>
 <p>Here an additional <code>sum(flags$.summary)</code> records were flagged! A look at the test summary and plot reveal the major issues.</p>
 <pre class="r"><code>plot(flags, lon = &quot;decimalLongitude&quot;, lat = &quot;decimalLatitude&quot;)</code></pre>
 <p>After this inspection we can safely remove the flagged records for this tutorial</p>
@@ -475,16 +472,14 @@ flags &lt;- clean_coordinates(x = dat_cl, lon = &quot;decimalLongitude&quot;, la
 <h2>6. Visualize the difference between the uncleaned and cleaned dataset (<code>plot</code>)</h2>
 <pre class="r"><code>world.inp &lt;- map_data(&quot;world&quot;)
 
-ggplot() + geom_map(data = world.inp, map = world.inp, aes(x = long, y = lat, map_id = region), fill = &quot;grey80&quot;) + 
-    xlim(min(dat$decimalLongitude, na.rm = T), max(dat$decimalLongitude, na.rm = T)) + ylim(min(dat$decimalLatitude, 
-    na.rm = T), max(dat$decimalLatitude, na.rm = T)) + geom_point(data = dat, aes(x = decimalLongitude, y = decimalLatitude), 
-    colour = &quot;darkred&quot;, size = 1) + geom_point(data = dat_cl, aes(x = decimalLongitude, y = decimalLatitude), colour = &quot;darkgreen&quot;, 
-    size = 1) + coord_fixed() + theme_bw() + theme(axis.title = element_blank())
+ggplot() + geom_map(data = world.inp, map = world.inp, aes(x = long, y = lat, map_id = region), fill = &quot;grey80&quot;) + xlim(min(dat$decimalLongitude, na.rm = T), max(dat$decimalLongitude, 
+    na.rm = T)) + ylim(min(dat$decimalLatitude, na.rm = T), max(dat$decimalLatitude, na.rm = T)) + geom_point(data = dat, aes(x = decimalLongitude, y = decimalLatitude), 
+    colour = &quot;darkred&quot;, size = 1) + geom_point(data = dat_cl, aes(x = decimalLongitude, y = decimalLatitude), colour = &quot;darkgreen&quot;, size = 1) + coord_fixed() + 
+    theme_bw() + theme(axis.title = element_blank())
 
 
-ggplot() + geom_map(data = world.inp, map = world.inp, aes(x = long, y = lat, map_id = region), fill = &quot;grey80&quot;) + 
-    xlim(min(dat$decimalLongitude, na.rm = T), max(dat$decimalLongitude, na.rm = T)) + ylim(min(dat$decimalLatitude, 
-    na.rm = T), max(dat$decimalLatitude, na.rm = T)) + geom_point(data = dat_cl, aes(x = decimalLongitude, y = decimalLatitude, 
+ggplot() + geom_map(data = world.inp, map = world.inp, aes(x = long, y = lat, map_id = region), fill = &quot;grey80&quot;) + xlim(min(dat$decimalLongitude, na.rm = T), max(dat$decimalLongitude, 
+    na.rm = T)) + ylim(min(dat$decimalLatitude, na.rm = T), max(dat$decimalLatitude, na.rm = T)) + geom_point(data = dat_cl, aes(x = decimalLongitude, y = decimalLatitude, 
     colour = dataset), size = 1) + coord_fixed() + theme_bw() + theme(axis.title = element_blank())
 </code></pre>
 </div>
